@@ -14,7 +14,7 @@ const TIMELINE_DATA = [
     name: 'DJI', 
     range: '2024.02 – 2024.06', 
     durationScore: 4, 
-    logo: 'https://brandslogos.com/wp-content/uploads/images/large/dji-logo-black-and-white.png' 
+    logo: 'https://brandlogos.net/wp-content/uploads/2019/01/dji-logo_brandlogos.net_21dtj.png' 
   },
   { 
     id: 'tangcheng', 

@@ -44,7 +44,7 @@ const BaseSolution: React.FC<BaseSolutionProps> = ({ onBack }) => {
         <div className="pt-16 max-w-lg mx-auto">
           <p className="text-sm text-gray-400 leading-loose italic">
             "Base Solution 模块是我在飞书实习期间及之后，通过创作标准化的多维表格模版，<br className="hidden md:block" />
-            激励市场 Campaign 互动、提升团队协作效率与业务管理颗粒度，以及服务日常生活中的小需求。"
+            激发 Campaign 互动、提升团队协作效率以及服务日常生活中的小需求。"
           </p>
         </div>
       </div>
