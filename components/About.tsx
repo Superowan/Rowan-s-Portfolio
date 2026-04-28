@@ -9,7 +9,6 @@ const CONTACTS = [
 ];
 
 const ConnectItem: React.FC<{ label: string; value: string }> = ({ label, value }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (e: React.MouseEvent) => {
@@ -20,35 +19,21 @@ const ConnectItem: React.FC<{ label: string; value: string }> = ({ label, value 
   };
 
   return (
-    <div 
-      className="relative flex flex-col"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setCopied(false);
-      }}
-    >
+    <div className="relative flex flex-col group">
       <button 
         onClick={handleCopy}
-        className={`text-sm font-medium transition-all duration-300 border-b border-transparent pb-0.5 whitespace-nowrap ${
-          isHovered ? 'text-black border-black' : 'text-gray-500 hover:text-gray-800'
+        className={`text-sm font-medium transition-all duration-300 border-b pb-0.5 whitespace-nowrap ${
+          copied ? 'text-green-600 border-green-600' : 'text-gray-500 border-transparent hover:text-black hover:border-black'
         }`}
       >
-        {label}
+        {copied ? 'Copied!' : label}
       </button>
       
-      {/* Popover / Reveal Area */}
-      <div className={`absolute top-full left-0 mt-2 transition-all duration-300 pointer-events-none z-20 ${
-        isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-      }`}>
+      {/* Tooltip on Desktop hover, or after clicking */}
+      <div className="absolute top-full left-0 mt-2 transition-all duration-300 opacity-0 group-hover:opacity-100 pointer-events-none z-20 hidden md:block">
         <div className="bg-white border border-gray-100 shadow-xl shadow-gray-200/50 px-4 py-2 rounded-lg flex items-center gap-3">
           <span className="text-[11px] text-gray-800 font-mono max-w-[200px] truncate">
             {value}
-          </span>
-          <span className={`text-[9px] uppercase tracking-widest font-bold transition-colors ${
-            copied ? 'text-green-500' : 'text-gray-300'
-          }`}>
-            {copied ? 'Copied' : 'Click to Copy'}
           </span>
         </div>
       </div>

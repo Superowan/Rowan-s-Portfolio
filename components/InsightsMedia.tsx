@@ -7,32 +7,38 @@ interface InsightsMediaProps {
 
 const InsightsMedia: React.FC<InsightsMediaProps> = ({ onBack }) => {
   return (
-    <div className="max-w-3xl mx-auto py-32 px-6 flex flex-col items-center justify-center min-h-[40vh] relative">
+    <div className="max-w-6xl mx-auto pb-32 px-4 md:px-8 relative min-h-[70vh]">
       {/* Back Button */}
-      <div className="absolute top-0 left-6 z-20">
+      <div className="absolute top-0 left-4 md:left-8 z-30">
         <button 
           onClick={onBack}
-          className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 hover:text-black transition-colors"
+          className="text-[10px] uppercase tracking-widest font-bold text-gray-400 hover:text-black transition-colors"
         >
           [ ← BACK ]
         </button>
       </div>
 
-      <div className="text-center space-y-10 pt-10">
-        <div className="space-y-4">
-          <h2 className="text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-gray-400 font-bold">Insights & Media</h2>
-          <p className="text-xl md:text-2xl text-gray-800 font-medium tracking-tight">
-            我的微信公众号：<span className="text-black font-semibold">细雨微声</span>
+      <div className="pt-20 lg:pt-32">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 mb-20 text-center md:text-left">
+          Insights & Media
+        </h1>
+        
+        <div className="flex flex-col items-center justify-center border-t border-black pt-32 pb-16">
+          <p className="text-xl md:text-2xl text-gray-800 font-light tracking-tight mb-4">
+            Official WeChat Account: <span className="font-semibold text-black">细雨微声</span>
+          </p>
+          
+          <div className="w-16 h-16 mt-12 mb-10 text-gray-200">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          
+          <p className="text-xs uppercase tracking-[0.4em] text-gray-400 font-medium">
+            WIP / Content Coming Soon
           </p>
         </div>
-        
-        <div className="pt-12">
-           <div className="w-12 h-0.5 bg-gray-200 mx-auto rounded-full"></div>
-        </div>
-        
-        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-300 font-medium">
-          Content Coming Soon / 内容持续更新中
-        </p>
       </div>
     </div>
   );

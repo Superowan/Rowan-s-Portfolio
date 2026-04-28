@@ -78,7 +78,7 @@ const App: React.FC = () => {
       {/* Subtle Update Date indicator at the top - Made more visible */}
       <div className="w-full pt-6 flex justify-center">
         <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-gray-500 font-semibold">
-          Update Date: 2026.1.26
+          Update Date: 2026.04.22
         </span>
       </div>
 

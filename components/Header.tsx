@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
       {/* Logo - Rowan Image (Transparent background & Larger Size) */}
       <div 
         onClick={() => onViewChange('works')}
-        className="w-40 h-40 md:w-56 md:h-56 mb-10 overflow-hidden rounded-full cursor-pointer transition-transform duration-500 hover:scale-105 active:scale-95"
+        className="w-24 h-24 md:w-32 md:h-32 mb-8 overflow-hidden rounded-full cursor-pointer transition-transform duration-500 hover:scale-105 active:scale-95"
       >
         <img 
           src="https://i.ibb.co/GfYqWgcV/Chat-GPT-Image-Jan-22-2026-04-44-26-PM.png" 
