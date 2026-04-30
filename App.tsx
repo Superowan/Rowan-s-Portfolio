@@ -11,10 +11,12 @@ import BaseSolution from './components/BaseSolution';
 import AiExploration from './components/AiExploration';
 import VisualCreative from './components/VisualCreative';
 import InsightsMedia from './components/InsightsMedia';
+import { LanguageProvider, useLanguage } from './components/LanguageContext';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [view, setView] = useState<ViewState>('works');
   const [isVisible, setIsVisible] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
 
   // Simple entry animation
   useEffect(() => {
@@ -75,6 +77,15 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto px-6 flex flex-col items-center selection:bg-gray-200">
+      <div className="absolute top-6 right-6 md:right-12 z-50">
+        <button 
+          onClick={toggleLanguage}
+          className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-gray-400 hover:text-black transition-colors"
+        >
+          {language === 'zh' ? 'EN' : 'CN'}
+        </button>
+      </div>
+
       {/* Subtle Update Date indicator at the top - Made more visible */}
       <div className="w-full pt-6 flex justify-center">
         <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-gray-500 font-semibold">
@@ -92,6 +103,14 @@ const App: React.FC = () => {
         © {new Date().getFullYear()} ROWAN LI. ALL RIGHTS RESERVED.
       </footer>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 

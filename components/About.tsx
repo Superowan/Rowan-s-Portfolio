@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useLanguage } from './LanguageContext';
 
 const CONTACTS = [
   { label: 'WeChat', value: 'Leeway512' },
@@ -42,6 +43,35 @@ const ConnectItem: React.FC<{ label: string; value: string }> = ({ label, value 
 };
 
 const About: React.FC = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    zh: {
+      bio: "03年湖北襄阳人，INTJ-A，目前 base 深圳。",
+      edu: {
+        master: "2025-2027 香港中文大学 — 管理学硕士",
+        bachelor: "2021-2025 贵州大学 — 旅游管理本科"
+      },
+      philosophy: {
+        keywords: "关键词：目标感、执行力、保持更新。",
+        text: "热爱品牌、营销和 GTM 出海领域，希望我的创作能为世界带来意义和感动。"
+      }
+    },
+    en: {
+      bio: "Born in 2003 in Xiangyang, Hubei. INTJ-A. Currently based in Shenzhen.",
+      edu: {
+        master: "2025-2027 The Chinese University of Hong Kong — MSc in Management",
+        bachelor: "2021-2025 Guizhou University — BA in Tourism Management"
+      },
+      philosophy: {
+        keywords: "Keywords: Goal-oriented, Execution, Continuous Update.",
+        text: "Passionate about Brand, Marketing, and GTM strategy. Hoping my creations bring meaning and touch the world."
+      }
+    }
+  };
+
+  const t = language === 'zh' ? content.zh : content.en;
+
   return (
     <div className="max-w-2xl mx-auto space-y-16 py-8">
       <section>
@@ -61,21 +91,19 @@ const About: React.FC = () => {
         <div className="space-y-12 text-gray-700 text-[17px] leading-relaxed font-normal">
           <div>
             <h2 className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold mb-3">Bio</h2>
-            <p>03年湖北襄阳人，INTJ-A，目前 base 深圳 。</p>
+            <p>{t.bio}</p>
           </div>
 
           <div>
             <h2 className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold mb-3">Education</h2>
-            <p className="mb-1">2025-2027 香港中文大学 — 管理学硕士</p>
-            <p>2021-2025 贵州大学 — 旅游管理本科</p>
+            <p className="mb-1">{t.edu.master}</p>
+            <p>{t.edu.bachelor}</p>
           </div>
 
           <div>
             <h2 className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-semibold mb-3">Philosophy</h2>
-            <p className="mb-6 font-medium text-gray-900">关键词：目标感、执行力、保持更新 。</p>
-            <p className="text-gray-600">
-              热爱品牌、营销和 GTM 出海 领域，希望我的创作能为世界带来意义和感动。
-            </p>
+            <p className="mb-6 font-medium text-gray-900">{t.philosophy.keywords}</p>
+            <p className="text-gray-600">{t.philosophy.text}</p>
           </div>
         </div>
       </section>

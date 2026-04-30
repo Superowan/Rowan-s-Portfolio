@@ -1,11 +1,27 @@
 
 import React from 'react';
+import { useLanguage } from './LanguageContext';
 
 interface BaseSolutionProps {
   onBack?: () => void;
 }
 
 const BaseSolution: React.FC<BaseSolutionProps> = ({ onBack }) => {
+  const { language } = useLanguage();
+
+  const content = {
+    zh: {
+      title: '关于多维表格模版作品',
+      desc: '"Base Solution 模块是我在飞书实习期间及之后，通过创作标准化的多维表格模版，激发 Campaign 互动、提升团队协作效率以及服务日常生活中的各种场景化需求。"'
+    },
+    en: {
+      title: 'About Bitable Template Works',
+      desc: '"The Base Solution module showcases standardized Bitable templates I created during and after my Feishu internship. These templates are designed to stimulate Campaign participation, enhance team collaboration, and serve various daily scenario needs."'
+    }
+  };
+
+  const t = content[language as keyof typeof content];
+
   return (
     <div className="max-w-6xl mx-auto pb-32 px-4 md:px-8 relative">
       {/* Back Button */}
@@ -26,10 +42,10 @@ const BaseSolution: React.FC<BaseSolutionProps> = ({ onBack }) => {
         <div className="flex flex-col md:flex-row gap-16 md:gap-24 mb-32 border-t border-black pt-16">
           <div className="w-full md:w-1/3 shrink-0">
             <h2 className="text-2xl font-medium text-gray-900 leading-snug mb-6">
-              关于多维表格模版作品
+              {t.title}
             </h2>
             <p className="text-[15px] text-gray-500 leading-relaxed font-light mb-10">
-              "Base Solution 模块是我在飞书实习期间及之后，通过创作标准化的多维表格模版，激发 Campaign 互动、提升团队协作效率以及服务日常生活中的各种场景化需求。"
+              {t.desc}
             </p>
             
             <a 
